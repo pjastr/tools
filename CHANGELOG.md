@@ -3,6 +3,25 @@
 Każda zmiana podnosi numer wersji w `app/version.php` (`APP_VERSION`).
 Format: MAJOR.MINOR.PATCH – poprawki zwiększają PATCH, nowe funkcje MINOR.
 
+## 1.2.0 — 2026-11-15
+- Nowe narzędzie **Historia zmian i komentarze PDF**:
+  - komentarze i adnotacje recenzenta (notatki, wyróżnienia, pola tekstowe, rysunki, pieczątki…)
+    z autorami, datami, odpowiedziami i statusami recenzji; filtry, eksport CSV/JSON/TXT;
+  - wersje pliku z zapisów przyrostowych: co zmieniło się w każdej wersji (strony, komentarze,
+    metadane), pobieranie każdej wcześniejszej wersji;
+  - podpisy cyfrowe: którą wersję obejmuje podpis, czy plik zmieniono po podpisaniu, nazwy z certyfikatów;
+  - historia zmian z metadanych XMP;
+  - usuwanie i anonimizacja komentarzy (zapis bez wcześniejszych wersji).
+- Nowe narzędzie **Śledzone zmiany i komentarze Word (DOCX, DOC)**:
+  - lista zmian (wstawienia, usunięcia, przeniesienia, formatowanie, akapity, wiersze i komórki tabel,
+    nagłówki, stopki, przypisy) z autorem, datą i kontekstem;
+  - komentarze z odpowiedziami, stanem „rozwiązany” i fragmentem tekstu, którego dotyczą;
+  - historia dokumentu (autorzy, daty, liczba zapisów, czas edycji, sesje edycji, historia zapisów DOC);
+  - DOCX: akceptowanie lub odrzucanie wszystkich zmian, usuwanie komentarzy, anonimizacja autorów,
+    wyłączenie śledzenia zmian; DOC: odczyt z tabeli fragmentów i właściwości znaków (bez zapisu).
+- Wspólne biblioteki narzędzi: `assets/js/lib/toolkit.js` (funkcje pomocnicze), `ooxml.js` (pakiety
+  Office Open XML), `ole.js` (pliki OLE/DOC, zestawy właściwości, tekst i zmiany w DOC).
+
 ## 1.1.0 — 2026-11-15
 - Nowe narzędzie **Metadane Word (DOCX, DOC)** – w całości w przeglądarce:
   - DOCX/DOCM/DOTX/DOTM: właściwości podstawowe, rozszerzone (firma, menedżer, szablon, czas edycji)

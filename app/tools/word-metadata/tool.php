@@ -12,6 +12,6 @@ return [
     'order' => 20,
     'local' => true,
     'version' => '1.0.0',
-    'js' => ['vendor/fflate.min.js', 'tools/word-metadata/word-metadata.js'],
+    'js' => ['vendor/fflate.min.js', 'js/lib/toolkit.js', 'js/lib/ooxml.js', 'js/lib/ole.js', 'tools/word-metadata/word-metadata.js'],
     'css' => ['tools/word-metadata/word-metadata.css'],
 ];
