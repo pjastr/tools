@@ -14,6 +14,7 @@ serwerze i bez zewnętrznych usług. Działa na zwykłym hostingu współdzielon
 | **Metadane PDF** | PDF | lokalnie w przeglądarce | Odczyt, edycja i usuwanie metadanych PDF (Info i XMP), szczegóły techniczne pliku, raport prywatności |
 | **Metadane Word (DOCX, DOC)** | Dokumenty Office | lokalnie w przeglądarce | Odczyt, edycja i czyszczenie metadanych dokumentów Word (także starego formatu DOC), raport prywatności |
 | **Metadane PowerPoint (PPTX, PPT)** | Dokumenty Office | lokalnie w przeglądarce | Właściwości prezentacji, notatki prelegenta, komentarze, ukryte slajdy, osadzone pliki; czyszczenie |
+| **Metadane Excel (XLSX, XLS)** | Dokumenty Office | lokalnie w przeglądarce | Właściwości skoroszytu, ukryte arkusze/wiersze/kolumny, komentarze, łącza, połączenia z danymi; czyszczenie |
 | **Historia zmian i komentarze PDF** | PDF | lokalnie w przeglądarce | Komentarze z autorami i datami, wcześniejsze wersje pliku (do pobrania), podpisy i zmiany po podpisaniu |
 | **Śledzone zmiany i komentarze Word (DOCX, DOC)** | Dokumenty Office | lokalnie w przeglądarce | Lista zmian i komentarzy z kontekstem; akceptowanie / odrzucanie zmian i usuwanie komentarzy (DOCX) |
 
@@ -66,6 +67,18 @@ Docelowo aplikacja ma zawierać 10–30 narzędzi. Każde narzędzie to osobny m
   i zapisy przyrostowe.
 - Czyszczenie PPTX: usunięcie notatek, komentarzy, miniatury, customXml, revisionInfo, anonimizacja autorów
   komentarzy, „Usuń dane osobowe przy zapisie”. PPT: właściwości dokumentu i nazwa ostatnio zapisującego.
+
+### Metadane Excel (XLSX, XLS)
+
+- Obsługuje **XLSX, XLSM, XLTX, XLTM** oraz **XLS, XLT** z Excela 97–2003. Plik nie jest wysyłany na serwer.
+- **Prywatność**: ukryte i „bardzo ukryte” arkusze, ukryte wiersze i kolumny (dane są w pliku!), komentarze
+  i notatki (także wątkowe, z kontami autorów), nazwy zdefiniowane, łącza do innych skoroszytów (ścieżki),
+  połączenia z bazami danych (z ostrzeżeniem o zapisanych hasłach), pamięci podręczne tabel przestawnych
+  (kopie danych źródłowych), Power Query, nazwy drukarek, użytkownik rezerwacji pliku, historia zmian
+  skoroszytu udostępnionego; w XLS także nazwa ostatnio zapisującego.
+- Czyszczenie XLSX: komentarze, ustawienia drukarki, użytkownik rezerwacji, miniatura, customXml, anonimizacja
+  autorów, „Usuń dane osobowe przy zapisie”. Ukrytych danych narzędzie nie usuwa – tylko je wskazuje.
+  XLS: właściwości dokumentu i nazwa ostatnio zapisującego.
 
 ### Historia zmian i komentarze PDF
 

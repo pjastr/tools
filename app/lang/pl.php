@@ -551,4 +551,5 @@ return [
     'om.s.hiddenSlides' => 'Ukryte slajdy',
     'om.s.mmClips' => 'Klipy multimedialne',
     'om.s.presentationFormat' => 'Format prezentacji',
+    'om.s.sheets' => 'Arkusze',
 ];

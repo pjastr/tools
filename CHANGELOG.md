@@ -3,6 +3,18 @@
 Każda zmiana podnosi numer wersji w `app/version.php` (`APP_VERSION`).
 Format: MAJOR.MINOR.PATCH – poprawki zwiększają PATCH, nowe funkcje MINOR.
 
+## 1.4.0 — 2026-11-15
+- Nowe narzędzie **Metadane Excel (XLSX, XLS)** – w całości w przeglądarce:
+  - właściwości skoroszytu (autor, firma, daty, właściwości niestandardowe…);
+  - raport prywatności: ukryte i „bardzo ukryte” arkusze, ukryte wiersze i kolumny, komentarze i notatki
+    (także wątkowe, z kontami autorów), nazwy zdefiniowane, łącza do innych skoroszytów, połączenia z danymi
+    (z wykrywaniem zapisanych haseł), pamięci podręczne tabel przestawnych, Power Query, nazwy drukarek,
+    rezerwacja pliku, historia zmian skoroszytu udostępnionego, makra;
+  - XLSX: usuwanie komentarzy, ustawień drukarki, użytkownika rezerwacji, miniatury, customXml,
+    anonimizacja autorów, „Usuń dane osobowe przy zapisie”;
+  - XLS: właściwości dokumentu, nazwa ostatnio zapisującego (WRITEACCESS), odczyt arkuszy, ukrytych
+    wierszy i kolumn, autorów notatek i łączy z rekordów BIFF8.
+
 ## 1.3.0 — 2026-11-15
 - Nowe narzędzie **Metadane PowerPoint (PPTX, PPT)** – w całości w przeglądarce:
   - właściwości prezentacji (autor, firma, daty, właściwości niestandardowe…), statystyki;

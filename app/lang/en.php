@@ -543,4 +543,5 @@ return [
     'om.s.hiddenSlides' => 'Hidden slides',
     'om.s.mmClips' => 'Multimedia clips',
     'om.s.presentationFormat' => 'Presentation format',
+    'om.s.sheets' => 'Sheets',
 ];
