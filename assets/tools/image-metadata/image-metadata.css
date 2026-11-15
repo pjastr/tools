@@ -1,0 +1,23 @@
+/* tools-php – narzędzie „Metadane obrazów” (MIT) */
+.im-top { display: grid; grid-template-columns: minmax(180px, 320px) 1fr; gap: 20px; align-items: start; margin-bottom: 8px; }
+.im-prev { margin: 0; border-radius: 12px; overflow: hidden; background: repeating-conic-gradient(var(--surface-2) 0 25%, transparent 0 50%) 0 0 / 16px 16px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
+.im-prev img { display: block; max-width: 100%; max-height: 360px; object-fit: contain; }
+.im-thumbs-wrap { margin: 6px 0 12px; }
+.im-thumbs { display: flex; flex-wrap: wrap; gap: 12px; }
+.im-thumb { margin: 0; display: flex; flex-direction: column; gap: 4px; }
+.im-thumb img { max-width: 180px; max-height: 140px; border-radius: 8px; border: 1px solid var(--border); }
+.im-thumb figcaption { font-size: .8rem; color: var(--text-2); }
+.im-sec { border-top: 1px solid var(--border); padding: 10px 0; }
+.im-sec > summary { display: flex; align-items: center; gap: 8px; cursor: pointer; list-style: none; padding: 4px 0; }
+.im-sec > summary::-webkit-details-marker { display: none; }
+.im-sec > summary::after { content: '▸'; margin-left: auto; color: var(--text-2); transition: transform .15s; }
+.im-sec[open] > summary::after { transform: rotate(90deg); }
+.im-sec > summary .ic { width: 18px; height: 18px; color: var(--text-2); }
+.im-sec .kv { margin: 10px 0 4px; }
+.im-sec dd, .im-sum dd { font-weight: 500; white-space: pre-wrap; }
+.im .kv a { display: inline-flex; align-items: center; gap: 4px; }
+.im .kv a .ic { width: 14px; height: 14px; }
+.im-opt-hint { opacity: .85; }
+.im-struct tr.im-meta td:first-child { font-weight: 600; }
+.im-struct td { padding: 8px 14px; }
+@media (max-width: 760px) { .im-top { grid-template-columns: 1fr; } }

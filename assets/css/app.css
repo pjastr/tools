@@ -418,7 +418,7 @@ dialog.modal::backdrop { background: rgba(10, 12, 20, .45); backdrop-filter: blu
 .tool-ic-sm { width: 34px; height: 34px; border-radius: 10px; }
 .tool-ic-sm .ic { width: 19px; height: 19px; }
 .tool-ic[data-cat="pdf"] { background: #fde7e4; color: #d0392b; }
-.tool-ic[data-cat="image"] { background: #e3f4ea; color: #16884a; }
+.tool-ic[data-cat="image"], .dz-ic[data-cat="image"] { background: #e3f4ea; color: #16884a; }
 .tool-ic[data-cat="office"], .dz-ic[data-cat="office"] { background: #e1ecfb; color: #1f5fbf; }
 .tool-ic[data-cat="text"] { background: #fff1d6; color: #b36b00; }
 .tool-ic[data-cat="dev"] { background: #e6e6fd; color: #4646d8; }
@@ -426,7 +426,7 @@ dialog.modal::backdrop { background: rgba(10, 12, 20, .45); backdrop-filter: blu
 .tool-ic[data-cat="security"] { background: #f1e5fb; color: #8a3fc7; }
 :root[data-theme="dark"] .tool-ic[data-cat] { background: color-mix(in srgb, currentColor 18%, transparent); }
 :root[data-theme="dark"] .tool-ic[data-cat="pdf"] { color: #ff8a7a; }
-:root[data-theme="dark"] .tool-ic[data-cat="image"] { color: #5ad18f; }
+:root[data-theme="dark"] .tool-ic[data-cat="image"], :root[data-theme="dark"] .dz-ic[data-cat="image"] { color: #5ad18f; }
 :root[data-theme="dark"] .tool-ic[data-cat="office"], :root[data-theme="dark"] .dz-ic[data-cat="office"] { background: color-mix(in srgb, #7fb0ff 18%, transparent); color: #7fb0ff; }
 :root[data-theme="dark"] .tool-ic[data-cat="text"] { color: #f2b443; }
 :root[data-theme="dark"] .tool-ic[data-cat="dev"] { color: #9393ff; }
@@ -435,7 +435,7 @@ dialog.modal::backdrop { background: rgba(10, 12, 20, .45); backdrop-filter: blu
 @media (prefers-color-scheme: dark) {
   :root[data-theme="system"] .tool-ic[data-cat] { background: color-mix(in srgb, currentColor 18%, transparent); }
   :root[data-theme="system"] .tool-ic[data-cat="pdf"] { color: #ff8a7a; }
-  :root[data-theme="system"] .tool-ic[data-cat="image"] { color: #5ad18f; }
+  :root[data-theme="system"] .tool-ic[data-cat="image"], :root[data-theme="system"] .dz-ic[data-cat="image"] { color: #5ad18f; }
   :root[data-theme="system"] .tool-ic[data-cat="office"], :root[data-theme="system"] .dz-ic[data-cat="office"] { background: color-mix(in srgb, #7fb0ff 18%, transparent); color: #7fb0ff; }
   :root[data-theme="system"] .tool-ic[data-cat="text"] { color: #f2b443; }
   :root[data-theme="system"] .tool-ic[data-cat="dev"] { color: #9393ff; }

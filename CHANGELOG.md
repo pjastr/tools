@@ -3,6 +3,21 @@
 Każda zmiana podnosi numer wersji w `app/version.php` (`APP_VERSION`).
 Format: MAJOR.MINOR.PATCH – poprawki zwiększają PATCH, nowe funkcje MINOR.
 
+## 1.5.0 — 2026-11-15
+- Nowe narzędzie **Metadane obrazów (JPG, PNG, WEBP)** – w całości w przeglądarce, bez ponownej kompresji:
+  - podsumowanie (aparat, obiektyw, ekspozycja, daty, autor, prawa autorskie, program, lokalizacja GPS
+    z łączem do mapy, orientacja, profil kolorów, numery seryjne), podgląd obrazu i zapisanych miniatur;
+  - pełny odczyt EXIF (IFD0, Exif, GPS, Interop, miniatura), XMP (także rozszerzonego, z historią edycji
+    i oznaczonymi osobami), IPTC i zasobów Photoshopa, profili ICC, komentarzy JPEG, tekstów PNG
+    (tEXt/zTXt/iTXt, surowe profile ImageMagick), Content Credentials (C2PA), obrazów MPF i danych za końcem
+    obrazu (np. wideo Motion Photo);
+  - raport prywatności (lokalizacja, osoby, numery seryjne, miniatury, parametry generowania obrazów AI…);
+  - bezstratne czyszczenie: lokalizacja, numery seryjne i identyfikatory, miniatury, daty, cały EXIF
+    (z zachowaniem orientacji), XMP, IPTC, komentarze, pozostałe bloki, profil ICC; edycja autora,
+    praw autorskich i opisu; poprawne przesunięcia MPF po zmianie rozmiaru metadanych;
+  - struktura pliku: segmenty i fragmenty z rozmiarami, udział metadanych w pliku.
+- Nowe ikony: robot, id, palette, certificate, aperture, map-pin-off.
+
 ## 1.4.0 — 2026-11-15
 - Nowe narzędzie **Metadane Excel (XLSX, XLS)** – w całości w przeglądarce:
   - właściwości skoroszytu (autor, firma, daty, właściwości niestandardowe…);

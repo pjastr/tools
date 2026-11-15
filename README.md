@@ -15,6 +15,7 @@ serwerze i bez zewnętrznych usług. Działa na zwykłym hostingu współdzielon
 | **Metadane Word (DOCX, DOC)** | Dokumenty Office | lokalnie w przeglądarce | Odczyt, edycja i czyszczenie metadanych dokumentów Word (także starego formatu DOC), raport prywatności |
 | **Metadane PowerPoint (PPTX, PPT)** | Dokumenty Office | lokalnie w przeglądarce | Właściwości prezentacji, notatki prelegenta, komentarze, ukryte slajdy, osadzone pliki; czyszczenie |
 | **Metadane Excel (XLSX, XLS)** | Dokumenty Office | lokalnie w przeglądarce | Właściwości skoroszytu, ukryte arkusze/wiersze/kolumny, komentarze, łącza, połączenia z danymi; czyszczenie |
+| **Metadane obrazów (JPG, PNG, WEBP)** | Obrazy | lokalnie w przeglądarce | EXIF, GPS, XMP, IPTC, ICC, komentarze, miniatury; bezstratne czyszczenie |
 | **Historia zmian i komentarze PDF** | PDF | lokalnie w przeglądarce | Komentarze z autorami i datami, wcześniejsze wersje pliku (do pobrania), podpisy i zmiany po podpisaniu |
 | **Śledzone zmiany i komentarze Word (DOCX, DOC)** | Dokumenty Office | lokalnie w przeglądarce | Lista zmian i komentarzy z kontekstem; akceptowanie / odrzucanie zmian i usuwanie komentarzy (DOCX) |
 
@@ -79,6 +80,18 @@ Docelowo aplikacja ma zawierać 10–30 narzędzi. Każde narzędzie to osobny m
 - Czyszczenie XLSX: komentarze, ustawienia drukarki, użytkownik rezerwacji, miniatura, customXml, anonimizacja
   autorów, „Usuń dane osobowe przy zapisie”. Ukrytych danych narzędzie nie usuwa – tylko je wskazuje.
   XLS: właściwości dokumentu i nazwa ostatnio zapisującego.
+
+### Metadane obrazów (JPG, PNG, WEBP)
+
+- Obsługuje **JPEG**, **PNG/APNG** i **WebP**. Obraz nie jest wysyłany na serwer ani ponownie kompresowany –
+  zmieniają się tylko bloki metadanych, piksele pozostają identyczne.
+- Odczyt: EXIF (z GPS i miniaturą), XMP (także rozszerzony: historia edycji, oznaczone osoby), IPTC i zasoby
+  Photoshopa, profil ICC, komentarze JPEG, teksty PNG (np. parametry generowania obrazów AI), Content
+  Credentials (C2PA), dodatkowe obrazy MPF i dane za końcem obrazu (np. wideo Motion Photo).
+- Podsumowanie z łączem do mapy (OpenStreetMap otwiera się dopiero po kliknięciu), podgląd miniatur, raport
+  prywatności i struktura pliku z rozmiarami bloków.
+- Czyszczenie: lokalizacja, numery seryjne i identyfikatory, miniatury, daty, cały EXIF (orientacja zostaje),
+  XMP, IPTC, komentarze, pozostałe bloki, profil ICC; edycja pól Autor, Prawa autorskie i Opis (EXIF).
 
 ### Historia zmian i komentarze PDF
 
