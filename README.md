@@ -12,6 +12,7 @@ serwerze i bez zewnętrznych usług. Działa na zwykłym hostingu współdzielon
 | Narzędzie | Kategoria | Przetwarzanie | Opis |
 |---|---|---|---|
 | **Metadane PDF** | PDF | lokalnie w przeglądarce | Odczyt, edycja i usuwanie metadanych PDF (Info i XMP), szczegóły techniczne pliku, raport prywatności |
+| **Metadane Word (DOCX, DOC)** | Dokumenty Office | lokalnie w przeglądarce | Odczyt, edycja i czyszczenie metadanych dokumentów Word (także starego formatu DOC), raport prywatności |
 
 Docelowo aplikacja ma zawierać 10–30 narzędzi. Każde narzędzie to osobny moduł (zob.
 „Dodawanie narzędzia”), który pojawia się na liście automatycznie.
@@ -33,6 +34,24 @@ Docelowo aplikacja ma zawierać 10–30 narzędzi. Każde narzędzie to osobny m
 - Eksport metadanych do JSON i TXT.
 - Ograniczenia: plików zaszyfrowanych nie można edytować; zapis unieważnia podpisy cyfrowe
   (aplikacja ostrzega przed zapisem).
+
+### Metadane Word (DOCX, DOC)
+
+- Obsługuje **DOCX, DOCM, DOTX, DOTM** (pakiet ZIP, biblioteka [fflate](https://github.com/101arrowz/fflate), MIT)
+  oraz **DOC i DOT** z Worda 97–2003 (własny czytnik i zapis plików OLE / Compound File).
+  Plik **nie jest wysyłany na serwer**.
+- Właściwości: tytuł, temat, autor, słowa kluczowe, komentarze, ostatnio modyfikujący, kategoria, stan,
+  firma, menedżer, szablon, numer poprawki, łączny czas edycji, język, daty; statystyki (strony, wyrazy…);
+  właściwości niestandardowe (tekst, liczba, tak/nie, data) – dodawanie, zmiana, usuwanie.
+- **Prywatność**: komentarze i ich autorzy, śledzone zmiany (usunięty tekst nadal jest w pliku!), lista osób
+  z kontami, ścieżka szablonu z nazwą użytkownika, zmienne dokumentu, identyfikatory sesji edycji (rsid),
+  dane SharePoint/customXml, ukryty tekst, osadzone pliki, makra; w DOC także historia zapisów
+  (autorzy i ścieżki) i „szybkie zapisywanie”.
+- Czyszczenie: anonimizacja autorów komentarzy i zmian, usuwanie komentarzy, rsid, ścieżki szablonu,
+  zmiennych, miniatury, customXml, historii zapisów (DOC), włączenie w Wordzie „Usuń dane osobowe przy
+  zapisie”; przycisk „Usuń wszystkie metadane”. Pobierana jest nowa kopia – oryginał pozostaje bez zmian.
+- Ograniczenia: dokumentów zaszyfrowanych hasłem nie można edytować; narzędzie nie akceptuje śledzonych
+  zmian (trzeba to zrobić w Wordzie); w formacie DOC Word może przechowywać dodatkowe ślady w treści pliku.
 
 ## Konta i administracja
 
@@ -97,7 +116,7 @@ Przykład `tool.php`:
 defined('TOOLS_APP') || exit;
 return [
     'icon' => 'file-info',          // ikona z assets/js/icons.js
-    'category' => 'pdf',            // pdf | image | text | dev | convert | security | other
+    'category' => 'pdf',            // pdf | office | image | text | dev | convert | security | other
     'order' => 20,
     'local' => true,                // true = dane przetwarzane tylko w przeglądarce
     'version' => '1.0.0',
@@ -110,6 +129,8 @@ Narzędzie pojawi się na liście automatycznie, a w Panelu admina → Narzędzi
 Teksty narzędzia trafiają do wspólnego słownika, więc w JS są dostępne przez
 `App.t('tool.<slug>.klucz')`. Polityka CSP pozwala tylko na skrypty z tego samego serwera – biblioteki
 dołączaj lokalnie (np. w `assets/vendor/`) i dopisz je do `THIRD-PARTY-NOTICES.md`.
+Wspólne elementy interfejsu narzędzi (strefa upuszczania `.dropzone`, pasek pliku `.file-bar`,
+formularz metadanych `.meta-*`, raport `.findings`) są w `assets/css/app.css`.
 Nowe ikony: dopisz nazwę do `scripts/build-icons.js` i uruchom
 `node scripts/build-icons.js <ścieżka do @tabler/icons>`.
 

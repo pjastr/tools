@@ -6,19 +6,19 @@ $fields = [
     'Creator' => 'text', 'Producer' => 'text', 'CreationDate' => 'date', 'ModDate' => 'date', 'Trapped' => 'trapped',
 ];
 ?>
-<div class="pdfm" data-pdfm>
+<div class="tool-app pdfm" data-pdfm>
   <label class="dropzone" data-drop>
     <input type="file" accept="application/pdf,.pdf" data-file hidden>
-    <span class="dz-ic"><?= icon('file-type-pdf') ?></span>
+    <span class="dz-ic" data-cat="pdf"><?= icon('file-type-pdf') ?></span>
     <strong class="dz-title"><?= e($k('drop_title')) ?></strong>
     <span class="muted"><?= e($k('drop_text')) ?></span>
     <span class="btn btn-primary"><?= icon('upload') ?><?= e($k('choose')) ?></span>
     <span class="dz-note"><?= icon('shield-check') ?><?= e($k('privacy_note')) ?></span>
   </label>
 
-  <div class="card pdfm-loading" data-loading hidden><span class="spinner" aria-hidden="true"></span><span><?= e($k('reading')) ?></span></div>
+  <div class="card tool-loading" data-loading hidden><span class="spinner" aria-hidden="true"></span><span><?= e($k('reading')) ?></span></div>
 
-  <div class="pdfm-result" data-result hidden>
+  <div class="tool-result" data-result hidden>
     <div class="card file-bar">
       <span class="tool-ic" data-cat="pdf"><?= icon('file-type-pdf') ?></span>
       <div class="file-bar-info">
@@ -40,7 +40,7 @@ $fields = [
 
     <div data-alerts></div>
 
-    <div class="seg pdfm-tabs" role="tablist">
+    <div class="seg meta-tabs" role="tablist">
       <button type="button" class="active" role="tab" data-tab="edit"><?= icon('edit') ?><?= e($k('tab_info')) ?></button>
       <button type="button" role="tab" data-tab="xmp"><?= icon('code') ?>XMP <span class="seg-count" data-xmp-count></span></button>
       <button type="button" role="tab" data-tab="details"><?= icon('list-details') ?><?= e($k('tab_details')) ?></button>
@@ -49,13 +49,13 @@ $fields = [
 
     <!-- Metadane dokumentu (słownik Info) – edycja -->
     <section class="card" data-panel="edit">
-      <form class="form pdfm-form" data-form autocomplete="off">
+      <form class="form meta-form" data-form autocomplete="off">
         <p class="muted small"><?= icon('info-circle') ?> <?= e($k('info_hint')) ?></p>
-        <div class="pdfm-fields">
+        <div class="meta-fields">
           <?php foreach ($fields as $name => $type): ?>
-          <div class="field pdfm-field<?= $type === 'textarea' ? ' wide' : '' ?>" data-field="<?= e($name) ?>">
-            <span class="pdfm-label"><?= e($k('f.' . $name)) ?> <code class="muted">/<?= e($name) ?></code></span>
-            <div class="pdfm-input">
+          <div class="field meta-field<?= $type === 'textarea' ? ' wide' : '' ?>" data-field="<?= e($name) ?>">
+            <span class="meta-label"><?= e($k('f.' . $name)) ?> <code class="muted">/<?= e($name) ?></code></span>
+            <div class="meta-input">
               <?php if ($type === 'textarea'): ?>
                 <textarea name="<?= e($name) ?>" rows="2"></textarea>
               <?php elseif ($type === 'date'): ?>
@@ -75,13 +75,13 @@ $fields = [
           <?php endforeach; ?>
         </div>
 
-        <h3 class="pdfm-sub"><?= icon('list') ?><?= e($k('custom')) ?></h3>
+        <h3 class="meta-sub"><?= icon('list') ?><?= e($k('custom')) ?></h3>
         <p class="muted small"><?= e($k('custom_hint')) ?></p>
-        <div class="pdfm-custom" data-custom></div>
+        <div class="meta-custom" data-custom></div>
         <div><button type="button" class="btn btn-sm" data-action="add-custom"><?= icon('plus') ?><?= e($k('add_custom')) ?></button></div>
 
         <hr class="sep">
-        <h3 class="pdfm-sub"><?= icon('device-floppy') ?><?= e($k('save_title')) ?></h3>
+        <h3 class="meta-sub"><?= icon('device-floppy') ?><?= e($k('save_title')) ?></h3>
         <div class="grid-2 tight">
           <label class="field"><span><?= e($k('xmp_mode')) ?></span>
             <select name="_xmp" data-xmp-mode>
@@ -96,7 +96,7 @@ $fields = [
         <label class="check"><input type="checkbox" name="_moddate_now" value="1"> <?= e($k('moddate_now')) ?></label>
         <label class="check" data-id-row hidden><input type="checkbox" name="_strip_id" value="1"> <?= e($k('strip_id')) ?></label>
         <label class="check" data-embedded-row hidden><input type="checkbox" name="_strip_embedded" value="1"> <span data-embedded-label></span></label>
-        <div class="row-actions pdfm-actions">
+        <div class="row-actions meta-actions">
           <button type="submit" class="btn btn-primary"><?= icon('download') ?><?= e($k('save')) ?></button>
           <button type="button" class="btn" data-action="strip"><?= icon('eraser') ?><?= e($k('strip_all')) ?></button>
           <button type="button" class="btn btn-ghost" data-action="reset"><?= icon('arrow-back-up') ?><?= e($k('reset')) ?></button>
@@ -123,13 +123,13 @@ $fields = [
 
     <!-- Szczegóły techniczne -->
     <section class="card" data-panel="details" hidden>
-      <dl class="kv pdfm-kv" data-details></dl>
+      <dl class="kv meta-kv" data-details></dl>
       <div data-fonts-wrap hidden>
-        <h3 class="pdfm-sub"><?= icon('typography') ?><?= e($k('fonts')) ?> <span class="seg-count" data-fonts-count></span></h3>
+        <h3 class="meta-sub"><?= icon('typography') ?><?= e($k('fonts')) ?> <span class="seg-count" data-fonts-count></span></h3>
         <div class="table-scroll"><table class="table small"><thead><tr><th><?= e($k('font_name')) ?></th><th><?= e($k('font_type')) ?></th><th><?= e($k('font_embedded')) ?></th></tr></thead><tbody data-fonts></tbody></table></div>
       </div>
       <div data-attach-wrap hidden>
-        <h3 class="pdfm-sub"><?= icon('paperclip') ?><?= e($k('attachments')) ?></h3>
+        <h3 class="meta-sub"><?= icon('paperclip') ?><?= e($k('attachments')) ?></h3>
         <ul class="list-plain" data-attachments></ul>
       </div>
     </section>
@@ -137,7 +137,7 @@ $fields = [
     <!-- Prywatność -->
     <section class="card" data-panel="privacy" hidden>
       <p class="muted"><?= e($k('privacy_intro')) ?></p>
-      <ul class="pdfm-findings" data-findings></ul>
+      <ul class="findings" data-findings></ul>
       <div class="row-actions"><button type="button" class="btn" data-action="strip-go"><?= icon('eraser') ?><?= e($k('strip_all')) ?></button></div>
     </section>
   </div>

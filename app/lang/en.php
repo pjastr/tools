@@ -378,6 +378,7 @@ return [
     'tools.fav_added' => 'Added to favourites.',
     'tools.fav_removed' => 'Removed from favourites.',
     'cat.pdf' => 'PDF',
+    'cat.office' => 'Office documents',
     'cat.image' => 'Images',
     'cat.text' => 'Text',
     'cat.dev' => 'Development',

@@ -511,7 +511,7 @@
         el.value = e ? e.value : '';
         orig.textContent = e ? T('orig', { v: e.value === '' ? '""' : e.value.length > 120 ? e.value.slice(0, 120) + '…' : e.value }) : T('orig_none');
       }
-      el.closest('.pdfm-field').classList.remove('changed');
+      el.closest('.meta-field').classList.remove('changed');
     });
     var box = $('[data-custom]');
     box.innerHTML = '';
@@ -541,7 +541,7 @@
 
   function addCustomRow(key, value) {
     var row = document.createElement('div');
-    row.className = 'pdfm-custom-row';
+    row.className = 'meta-custom-row';
     row.innerHTML = '<input type="text" class="ck" placeholder="' + esc(T('custom_key')) + '" maxlength="64" pattern="[A-Za-z0-9_.\\-]{1,64}">'
       + '<input type="text" class="cv" placeholder="' + esc(T('custom_value')) + '">'
       + '<button type="button" class="btn-icon" data-remove-custom title="' + esc(App.t('common.delete')) + '">' + App.icon('trash') + '</button>';
@@ -645,7 +645,7 @@
     });
     var custom = [];
     var bad = null;
-    $$('.pdfm-custom-row').forEach(function (row) {
+    $$('.meta-custom-row').forEach(function (row) {
       var key = row.querySelector('.ck').value.trim(), val = row.querySelector('.cv').value;
       if (!key && !val) return;
       if (!/^[A-Za-z0-9_.\-]{1,64}$/.test(key) || STD.indexOf(key) !== -1) { bad = key || '?'; return; }
@@ -821,7 +821,7 @@
     var form = $('[data-form]');
     var el = form.elements[k];
     var orig = m[k] ? (DATE_KEYS[k] ? (m[k].date && m[k].date.date ? toInputValue(m[k].date.date) : '') : m[k].value) : '';
-    el.closest('.pdfm-field').classList.toggle('changed', el.value !== orig);
+    el.closest('.meta-field').classList.toggle('changed', el.value !== orig);
   }
 
   /* ====================================================================== */
@@ -913,7 +913,7 @@
       el.focus();
       return;
     }
-    if (e.target.closest('[data-remove-custom]')) { e.target.closest('.pdfm-custom-row').remove(); return; }
+    if (e.target.closest('[data-remove-custom]')) { e.target.closest('.meta-custom-row').remove(); return; }
     var a = e.target.closest('[data-action]');
     if (!a) return;
     var act = a.getAttribute('data-action');

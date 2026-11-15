@@ -3,8 +3,8 @@
 tools-php jest udostępniana na licencji MIT (plik `LICENSE`).
 Aplikacja zawiera wyłącznie poniższe komponenty firm trzecich – wszystkie na licencjach
 zgodnych z MIT (MIT, 0BSD, Zlib), pozwalających na swobodne użycie, modyfikację i dystrybucję,
-także komercyjną. Pozostały kod (w tym obsługa TOTP/2FA i narzędzia) jest własną implementacją
-projektu (MIT).
+także komercyjną. Pozostały kod (w tym obsługa TOTP/2FA, odczyt i zapis plików OLE/DOC oraz narzędzia) jest własną
+implementacją projektu (MIT).
 
 Nie są używane żadne zewnętrzne czcionki (tylko czcionki systemowe) ani usługi CDN –
 wszystkie pliki są serwowane lokalnie.
@@ -16,6 +16,7 @@ wszystkie pliki są serwowane lokalnie.
 | ↳ wbudowane: @pdf-lib/upng (Photopea) | 1.0.1 | jw. | MIT |
 | ↳ wbudowane: pako (Vitaly Puzrin, Andrei Tuputcyn) | 1.0.11 | jw. | MIT i Zlib |
 | ↳ wbudowane: helpery tslib (Microsoft Corporation) | 1.14.1 | jw. | 0BSD |
+| fflate (Arjun Barrett) | 0.8.2 | `assets/vendor/fflate.min.js` | MIT |
 | QR Code Generator for JavaScript (Kazuhiko Arase) | 1.4.4 | `assets/vendor/qrcode.js` | MIT |
 | Tabler Icons (Paweł Kuna) | 3.19.0 | `assets/js/icons.js`, `app/lib/icons_data.php` (wybrane ikony) | MIT |
 
@@ -88,6 +89,12 @@ THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES
 DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF
 CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE
 OR PERFORMANCE OF THIS SOFTWARE.
+
+## fflate — MIT
+
+Copyright (c) 2023 Arjun Barrett
+
+Licensed under the MIT license (treść licencji MIT jak wyżej).
 
 ## QR Code Generator for JavaScript — MIT
 

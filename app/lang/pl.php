@@ -386,6 +386,7 @@ return [
     'tools.fav_added' => 'Dodano do ulubionych.',
     'tools.fav_removed' => 'Usunięto z ulubionych.',
     'cat.pdf' => 'PDF',
+    'cat.office' => 'Dokumenty Office',
     'cat.image' => 'Obrazy',
     'cat.text' => 'Tekst',
     'cat.dev' => 'Programowanie',

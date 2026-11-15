@@ -29,6 +29,7 @@ final class Tools
     {
         return [
             'pdf' => 'file-type-pdf',
+            'office' => 'file-word',
             'image' => 'photo',
             'text' => 'typography',
             'dev' => 'code',
