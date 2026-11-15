@@ -3,6 +3,20 @@
 Każda zmiana podnosi numer wersji w `app/version.php` (`APP_VERSION`).
 Format: MAJOR.MINOR.PATCH – poprawki zwiększają PATCH, nowe funkcje MINOR.
 
+## 1.3.0 — 2026-11-15
+- Nowe narzędzie **Metadane PowerPoint (PPTX, PPT)** – w całości w przeglądarce:
+  - właściwości prezentacji (autor, firma, daty, właściwości niestandardowe…), statystyki;
+  - raport prywatności: notatki prelegenta, komentarze (stare i nowe, z odpowiedziami i kontami autorów),
+    ukryte slajdy, osadzone pliki (np. arkusze Excela pod wykresami), odwołania zewnętrzne, miniatura,
+    informacje o wersjach (revisionInfo), makra;
+  - PPTX: usuwanie notatek, komentarzy, miniatury, customXml, revisionInfo, anonimizacja autorów,
+    „Usuń dane osobowe przy zapisie”;
+  - PPT: właściwości dokumentu, nazwa ostatnio zapisującego (Current User), odczyt notatek, komentarzy
+    i zapisów przyrostowych z rekordów „PowerPoint Document”.
+- Wspólny moduł narzędzi metadanych Office: `assets/js/lib/officemeta.js` i widok `app/views/office_meta.php`
+  (właściwości OOXML/OLE, formularz, zapis, eksport), teksty wspólne `om.*` w `app/lang`.
+  Narzędzie „Metadane Word” korzysta z niego bez zmian w działaniu.
+
 ## 1.2.0 — 2026-11-15
 - Nowe narzędzie **Historia zmian i komentarze PDF**:
   - komentarze i adnotacje recenzenta (notatki, wyróżnienia, pola tekstowe, rysunki, pieczątki…)

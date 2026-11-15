@@ -13,6 +13,7 @@ serwerze i bez zewnętrznych usług. Działa na zwykłym hostingu współdzielon
 |---|---|---|---|
 | **Metadane PDF** | PDF | lokalnie w przeglądarce | Odczyt, edycja i usuwanie metadanych PDF (Info i XMP), szczegóły techniczne pliku, raport prywatności |
 | **Metadane Word (DOCX, DOC)** | Dokumenty Office | lokalnie w przeglądarce | Odczyt, edycja i czyszczenie metadanych dokumentów Word (także starego formatu DOC), raport prywatności |
+| **Metadane PowerPoint (PPTX, PPT)** | Dokumenty Office | lokalnie w przeglądarce | Właściwości prezentacji, notatki prelegenta, komentarze, ukryte slajdy, osadzone pliki; czyszczenie |
 | **Historia zmian i komentarze PDF** | PDF | lokalnie w przeglądarce | Komentarze z autorami i datami, wcześniejsze wersje pliku (do pobrania), podpisy i zmiany po podpisaniu |
 | **Śledzone zmiany i komentarze Word (DOCX, DOC)** | Dokumenty Office | lokalnie w przeglądarce | Lista zmian i komentarzy z kontekstem; akceptowanie / odrzucanie zmian i usuwanie komentarzy (DOCX) |
 
@@ -54,6 +55,17 @@ Docelowo aplikacja ma zawierać 10–30 narzędzi. Każde narzędzie to osobny m
   zapisie”; przycisk „Usuń wszystkie metadane”. Pobierana jest nowa kopia – oryginał pozostaje bez zmian.
 - Ograniczenia: dokumentów zaszyfrowanych hasłem nie można edytować; narzędzie nie akceptuje śledzonych
   zmian (trzeba to zrobić w Wordzie); w formacie DOC Word może przechowywać dodatkowe ślady w treści pliku.
+
+### Metadane PowerPoint (PPTX, PPT)
+
+- Obsługuje **PPTX, PPTM, POTX, PPSX** oraz **PPT, PPS, POT** z PowerPointa 97–2003. Plik nie jest wysyłany na serwer.
+- Właściwości jak w narzędziu dla Worda (autor, firma, daty, właściwości niestandardowe…) i statystyki prezentacji.
+- **Prywatność**: notatki prelegenta (z treścią), komentarze w starym i nowym formacie z odpowiedziami i kontami
+  autorów (adresy e-mail), ukryte slajdy, osadzone pliki (np. arkusz Excela z danymi wykresu), odwołania do plików
+  lokalnych, miniatura pierwszego slajdu, informacje o wersjach, makra; w PPT także nazwa ostatnio zapisującego
+  i zapisy przyrostowe.
+- Czyszczenie PPTX: usunięcie notatek, komentarzy, miniatury, customXml, revisionInfo, anonimizacja autorów
+  komentarzy, „Usuń dane osobowe przy zapisie”. PPT: właściwości dokumentu i nazwa ostatnio zapisującego.
 
 ### Historia zmian i komentarze PDF
 
@@ -162,7 +174,9 @@ formularz metadanych `.meta-*`, raport `.findings`, listy komentarzy i wersji `.
 `assets/css/app.css`. Wspólny kod JS jest w `assets/js/lib/`:
 `toolkit.js` (`window.ToolKit` – formatowanie, pobieranie plików, strefa upuszczania, zakładki, CSV),
 `ooxml.js` (`window.ToolsOoxml` – pakiety DOCX/XLSX/PPTX, wymaga `vendor/fflate.min.js`),
-`ole.js` (`window.ToolsOle` – pliki OLE, zestawy właściwości, struktury i tekst dokumentów DOC).
+`ole.js` (`window.ToolsOle` – pliki OLE, zestawy właściwości, struktury i tekst dokumentów DOC),
+`officemeta.js` (`window.OfficeMeta` – gotowe narzędzie „Metadane …” dla formatów Office: wystarczy adapter
+formatu i widok `app/views/office_meta.php`; teksty wspólne `om.*`, nadpisywane przez `tool.<slug>.*`).
 Dołącz potrzebne pliki w polu `js` opisu narzędzia (przed własnym skryptem).
 Nowe ikony: dopisz nazwę do `scripts/build-icons.js` i uruchom
 `node scripts/build-icons.js <ścieżka do @tabler/icons>`.
